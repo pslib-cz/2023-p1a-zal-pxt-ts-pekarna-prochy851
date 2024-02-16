@@ -9,6 +9,9 @@
     odebrané množství "energie":
     3500 * (600 / 3600) === 3500 * (1/6) === 583,333W
 */
+let watt:number=0;
+let konecna_cena:number=0;
+let sekundy:number=0;
 type Odber = {
     cas: number, //čas je v sekundách
     spotreba: number //spotřeba ve watech za hodinu
@@ -27,3 +30,12 @@ for (const peceme of data){
     console.logValue("spotřeba: ", peceme.spotreba);
     console.logValue("spotřebováno: ", peceme.spotreba / 3600 * peceme.cas);
 }
+for (let i = 0; i < 5; i++) {
+    watt += data[i].spotreba
+    sekundy += data[i].cas
+    watt *= (sekundy/3600)
+}
+konecna_cena = (watt *= cena)
+console.log("konečná cena:")
+console.log(konecna_cena)
+

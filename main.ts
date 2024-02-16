@@ -10,6 +10,7 @@
     3500 * (600 / 3600) === 3500 * (1/6) === 583,333W
 */
 let watt:number=0;
+let watt2: number = 0;
 let konecna_cena:number=0;
 let sekundy:number=0;
 type Odber = {
@@ -32,10 +33,16 @@ for (const peceme of data){
 }
 for (let i = 0; i < 5; i++) {
     watt += data[i].spotreba
+    watt2 += data[i].spotreba
     sekundy += data[i].cas
     watt *= (sekundy/3600)
 }
 konecna_cena = (watt *= cena)
-console.log("konečná cena:")
+console.log("konečná cena v kč:")
 console.log(konecna_cena)
+watt2/=5
+console.log("průměr elektrické energie(v KWh):")
+console.log(watt2)
+
+
 
